@@ -1,6 +1,10 @@
+ 
+ 
 <div class="card">
+ 
   <div class="card-img-top">
-    <img src="{{flag}}" alt="{{name}}">
+   
+    <img src="{{flag}}" alt="{{{name}}}">
   </div>
   <div class="card-body">
     <h2 class="card-title"><b>Country:</b> {{name}}</h2>
@@ -10,8 +14,11 @@
     <p class="card-text"><b>Languages:</b></p>
     <ul class="list-group"></ul>
     {{#each languages}}
-      <li class="list-group-item">{{language.name}}</li>
+      <li class="list-group-item">{{this.name}}</li>
     {{/each}}
     </ul>
+     
   </div>
+  
 </div>
+ 

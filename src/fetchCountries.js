@@ -8,7 +8,7 @@ const refs = {
 fetchCountry();
 
 function fetchCountry() {
-  fetch('https://restcountries.eu/rest/v2/name/colombia')
+  fetch('https://restcountries.eu/rest/v2/name/ukraine')
     .then(response => {
       return response.json();
     })
@@ -18,7 +18,8 @@ function fetchCountry() {
     });
 }
 
-function renderCountryCard(country) {
-  const markup = countryCardTpl(country);
+function renderCountryCard(name) {
+  const markup = countryCardTpl(...name);
   refs.cardContainer.innerHTML = markup;
+  // console.log(markup);
 }
