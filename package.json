@@ -2,7 +2,7 @@
   "name": "parcel-project-template",
   "version": "1.1.0",
   "description": "",
-  "main": "index.js",
+  "main": "fetchCountries.js",
   "homepage": "https://YarovaT.github.io/goit-js-hw-12-new-countries",
   "scripts": {
     "dev": "parcel src/*.html",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/goitacademy/parcel-project-template.git"
+    "url": "git+https://github.com/YarovaT/goit-js-hw-12-new-countries.git"
   },
   "keywords": [],
   "author": "Alexander Repeta <alexander.repeta@gmail.com>",
@@ -24,5 +24,9 @@
     "parcel-plugin-nuke-dist": "^1.0.1",
     "posthtml-include": "^1.6.2",
     "sass": "^1.32.8"
+  },
+  "dependencies": {
+    "parcel-plugin-handlebars": "^0.4.4",
+    "templates": "^1.2.9"
   }
 }
