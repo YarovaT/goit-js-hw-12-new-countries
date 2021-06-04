@@ -31,28 +31,29 @@ img {
   justify-content: center;
 }
 
-.search-form {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-}
+// .search-form {
+//   display: inline-flex;
+//   justify-content: center;
+//   align-items: center;
+//   padding: 10px;
+// }
 
 .card {
   margin: 10px;
 }
 
-.btn {
-  padding: 10px;
-  background-color: #3f51b5;
-  color: #fff;
-  font-weight: 600;
-  border-radius: 5px;
-}
+// .btn {
+//   padding: 10px;
+//   background-color: #3f51b5;
+//   color: #fff;
+//   font-weight: 600;
+//   border-radius: 5px;
+// }
 
 input[type='text'] {
   padding: 10px;
   margin: 10px 5px;
   box-sizing: border-box;
   border-radius: 5px;
+  width: 288px;
 }

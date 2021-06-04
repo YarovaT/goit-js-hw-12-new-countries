@@ -3,20 +3,25 @@ import countryCardTpl from './templates/country-card.hbs';
 import API from './api-service.js';
 import getRefs from './get-refs.js';
 
+var debounce = require('lodash.debounce');
+
 const refs = getRefs();
 
-refs.searchForm.addEventListener('submit', onSearch);
+// refs.searchForm.addEventListener('submit', onSearch);
+
+refs.input.addEventListener('input', debounce(onSearch, 500));
 
 function onSearch(e) {
   e.preventDefault();
 
-  const form = e.currentTarget;
-  const searchQuery = form.elements.query.value;
+  const searchQuery = e.target.value;
 
   API.fetchCountries(searchQuery)
     .then(renderCountryCard)
     .catch(onFetchError)
-    .finally(() => form.reset());
+    .finally(() => {
+      refs.searchForm.reset();
+    });
 }
 
 function renderCountryCard(country) {
@@ -26,4 +31,8 @@ function renderCountryCard(country) {
 
 function onFetchError(error) {
   alert('It is not find. Let`s try again');
+}
+
+function cleanInput() {
+  refs.input.value === '';
 }
