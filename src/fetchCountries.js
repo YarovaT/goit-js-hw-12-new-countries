@@ -13,6 +13,7 @@ refs.input.addEventListener('input', debounce(onSearch, 500));
 
 function onSearch(e) {
   e.preventDefault();
+  cleanCardContainer();
 
   const searchQuery = e.target.value;
 
@@ -26,7 +27,6 @@ function onSearch(e) {
 }
 
 function renderCountryCard(countryCard, template) {
-  // const markup = template(...countryCard);
   const markup = countryCard.map(count => template(count)).join();
 
   refs.cardContainer.innerHTML = markup;
@@ -48,4 +48,8 @@ function checkedCountryCard(countryCard) {
 
 function onFetchError() {
   alert('It is not find. Let`s try again');
+}
+
+function cleanCardContainer() {
+  refs.cardContainer.innerHTML = '';
 }
