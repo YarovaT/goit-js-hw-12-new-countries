@@ -4,9 +4,9 @@ import countryCardList from './templates/country-cardList.hbs';
 import API from './api-service.js';
 import getRefs from './get-refs.js';
 import '@pnotify/core/dist/BrightTheme.css';
+import debounce from 'lodash.debounce';
+import { error } from '@pnotify/core';
 
-var debounce = require('lodash.debounce');
-const { error } = require('@pnotify/core');
 const refs = getRefs();
 
 refs.input.addEventListener('input', debounce(onSearch, 500));
@@ -17,13 +17,11 @@ function onSearch(e) {
 
   const searchQuery = e.target.value;
 
-  API.fetchCountries(searchQuery)
-    .then(checkedCountryCard)
+  if (!searchQuery) {
+    return;
+  }
 
-    .catch(onFetchError)
-    .finally(() => {
-      refs.searchForm.reset();
-    });
+  API.fetchCountries(searchQuery).then(checkedCountryCard).catch(onFetchError);
 }
 
 function renderCountryCard(countryCard, template) {
